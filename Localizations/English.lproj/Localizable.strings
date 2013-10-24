@@ -32,6 +32,7 @@
 "PrefLog"				= "Log diagnostic messages to the console";
 "PrefRestoreState"		= "Restore last used mode at startup";
 "PrefPowerSwitching"	= "Use power source-based switching";
+"PrefDepend"            = "Ignore dependencies when switching to Integrated";
 "Integrated"            = "Integrated";
 "Discrete"              = "Discrete";
 "Dynamic"               = "Dynamic";

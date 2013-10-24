@@ -27,7 +27,10 @@
 @synthesize prefChkUpdate;
 @synthesize prefChkStartup;
 @synthesize prefChkGrowl;
+@synthesize prefChkDepend;
 @synthesize prefs;
+
+
 
 #pragma mark - Initializers
 
@@ -55,7 +58,7 @@
         [GSStartup loadAtStartup:[x boolValue]];
     }];
     
-    NSArray *localizedButtons = [[NSArray alloc] initWithObjects:prefChkStartup, prefChkUpdate, prefChkSmartIcons, prefChkGrowl, nil];
+    NSArray *localizedButtons = [[NSArray alloc] initWithObjects:prefChkStartup, prefChkUpdate, prefChkSmartIcons, prefChkGrowl, prefChkDepend, nil];
     for (NSButton *loc in localizedButtons)
         [loc setTitle:Str([loc title])];
 
@@ -67,6 +70,14 @@
         frame.origin.y -= NSHeight(prefChkGrowl.frame);
         self.view.frame = frame;
     }
+    
+    [prefChkDepend setHidden:NO]; //ADDED
+    
+}
+
+- (BOOL)checkboxClicked
+{
+    return ;
 }
 
 #pragma mark - Passthrough properties
@@ -92,5 +103,5 @@
 {
     return [NSImage imageNamed:NSImageNamePreferencesGeneral];
 }
-
 @end
+

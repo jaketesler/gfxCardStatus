@@ -17,7 +17,27 @@
 @property (strong) IBOutlet NSButton *prefChkUpdate;  // check for updates on startup
 @property (strong) IBOutlet NSButton *prefChkStartup; // start at login
 @property (strong) IBOutlet NSButton *prefChkGrowl;   // display gpu change notifications
+@property (strong) IBOutlet NSButton *prefChkDepend; //check for dependencies when switching to integrated //ADDED
+- (IBAction)checkboxClicked:(id)sender;
 
 @property (strong) GSPreferences *prefs;
+
+
+@property (weak) IBOutlet NSButton *shouldCheckForDepend;
+/*{
+ [prefChkDepend:[sender state] ? YES : NO];
+ if ( [prefChkDepend state] )
+ CFPreferencesSetAppValue( CFSTR("Bool Value Key"),
+ kCFBooleanTrue, CFSTR(""));
+ else
+ CFPreferencesSetAppValue( CFSTR("Bool Value Key"),
+ kCFBooleanFalse, CFSTR(""));
+ }*/
+
+/*+ (BOOL)shouldCheckDepend
+ {
+ return Boolvaluekey prefCheckDepend
+ }*/
+
 
 @end

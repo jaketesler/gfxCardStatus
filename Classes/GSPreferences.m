@@ -21,6 +21,7 @@
 #define kShouldCheckForUpdatesOnStartupKey      @"shouldCheckForUpdatesOnStartup"
 #define kShouldUsePowerSourceBasedSwitchingKey  @"shouldUsePowerSourceBasedSwitching"
 #define kShouldUseSmartMenuBarIconsKey          @"shouldUseSmartMenuBarIcons"
+#define kShouldCheckForDependencies             @"shouldCheckForDependencies"
 
 // This used to be called "shouldGrowl"
 #define kShouldDisplayNotificationsKey          @"shouldGrowl"
@@ -90,6 +91,9 @@
     // notifications are helpful.
     if (_prefsDict[kShouldDisplayNotificationsKey] == nil)
         _prefsDict[kShouldDisplayNotificationsKey] = @YES;
+    
+    if (_prefsDict[kShouldCheckForDependencies] == nil) //ADDED
+        _prefsDict[kShouldCheckForDependencies] = @NO; //ADDED
 }
 
 - (void)setDefaults
@@ -101,6 +105,7 @@
     _prefsDict[kShouldDisplayNotificationsKey] = @YES;
     _prefsDict[kShouldUsePowerSourceBasedSwitchingKey] = @NO;
     _prefsDict[kShouldUseSmartMenuBarIconsKey] = @NO;
+    _prefsDict[kShouldCheckForDependencies] = @NO;
     
     _prefsDict[kPowerSourceBasedSwitchingBatteryMode] = @(GSPowerSourceBasedSwitchingModeIntegrated);
     if ([GSGPU isLegacyMachine])
@@ -160,6 +165,11 @@
 - (BOOL)shouldUseSmartMenuBarIcons
 {
     return [_prefsDict[kShouldUseSmartMenuBarIconsKey] boolValue];
+}
+
+- (BOOL)shouldCheckForDependencies //ADDED
+{
+    return [_prefsDict[kShouldCheckForDependencies] boolValue];
 }
 
 - (GSPowerSourceBasedSwitchingMode)modeForACAdapter

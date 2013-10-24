@@ -196,6 +196,9 @@
 
     if (sender == integratedOnly) {
         NSArray *taskList = [GSProcess getTaskList];
+        if (preferencesItem )
+//            BOOL chkDepend = [_prefsDict.shouldCheckForDependencies]
+            if (prefChkDepend)
         /*if (taskList.count > 0) {
             GTMLoggerInfo(@"Not setting Integrated Only because of dependencies list items: %@", taskList);
 
